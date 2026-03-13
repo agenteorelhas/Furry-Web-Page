@@ -1,9 +1,9 @@
-furaffinity-clone
-     index.html
-     style.css
-     script.js
-     img
-       art1.jpg
-       art2.jpg
-       art3.jpg
-       avater.jpg
+furry-world
+│
+├── index.html
+├── style.css
+├── script.js
+└── img
+    ├── furry1.png
+    ├── furry2.png
+    └── avatar.png
