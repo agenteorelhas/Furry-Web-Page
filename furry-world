@@ -1,9 +1,10 @@
-furry-world
+furry-universe
 │
 ├── index.html
 ├── style.css
 ├── script.js
 └── img
-    ├── furry1.png
-    ├── furry2.png
-    └── avatar.png
+     ├── logo.png
+     ├── avatar.png
+     ├── furry1.jpg
+     └── furry2.jpg
