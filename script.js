@@ -1,33 +1,53 @@
-function favoritar(btn){
+function curtir(){
 
-btn.innerText="⭐ Favoritado";
+alert("❤️ Você curtiu esse personagem!");
 
 }
 
 
 
-let search = document.getElementById("search");
+let humor = 0;
 
-search.addEventListener("keyup", function(){
+function trocarAvatar(){
 
-let valor = search.value.toLowerCase();
+let avatar = document.getElementById("avatarImg");
 
-let artes = document.querySelectorAll(".art");
+if(humor == 0){
 
-artes.forEach(function(art){
+avatar.style.transform = "rotate(10deg)";
+alert("Avatar feliz 🐾");
 
-let nome = art.dataset.name;
-
-if(nome.includes(valor)){
-
-art.style.display="block";
+humor = 1;
 
 }else{
 
-art.style.display="none";
+avatar.style.transform = "rotate(0deg)";
+alert("Avatar neutro");
+
+humor = 0;
 
 }
 
-});
+}
 
-});
+
+
+function postar(){
+
+let texto = document.getElementById("postText").value;
+
+if(texto == "") return;
+
+let feed = document.getElementById("feed");
+
+let post = document.createElement("div");
+
+post.className = "post";
+
+post.innerText = texto;
+
+feed.prepend(post);
+
+document.getElementById("postText").value = "";
+
+}
