@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Furry Gallery</title>
+<title>Furry Universe</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -13,76 +13,87 @@
 
 <header>
 
-<h1>🐾 Furry Gallery</h1>
+<h1>🐾 Furry Universe</h1>
 
-<input id="search" placeholder="Pesquisar arte...">
+<nav>
+<a href="#">Home</a>
+<a href="#">Personagens</a>
+<a href="#">Comunidade</a>
+</nav>
 
 </header>
 
+<section class="hero">
 
-<section class="profile">
-
-<img src="img/avatar.jpg">
-
-<h2>NeoFox</h2>
-
-<p>Artista digital furry</p>
+<h2>Bem-vindo ao mundo furry</h2>
+<p>Explore personagens, arte e a comunidade.</p>
 
 </section>
 
 
-<section class="gallery" id="gallery">
+<section class="characters">
 
-<div class="art" data-name="wolf">
+<h2>Personagens</h2>
 
-<img src="img/art1.jpg">
+<div class="card">
 
-<div class="info">
+<img src="img/furry1.png">
 
-<h3>Lobo Guerreiro</h3>
+<h3>Raven Wolf</h3>
 
-<button onclick="favoritar(this)">❤️ Favoritar</button>
+<p>Lobo explorador do norte.</p>
 
-</div>
-
-</div>
-
-
-<div class="art" data-name="fox">
-
-<img src="img/art2.jpg">
-
-<div class="info">
-
-<h3>Raposa Neon</h3>
-
-<button onclick="favoritar(this)">❤️ Favoritar</button>
-
-</div>
+<button onclick="curtir()">❤️ Curtir</button>
 
 </div>
 
 
-<div class="art" data-name="dragon">
+<div class="card">
 
-<img src="img/art3.jpg">
+<img src="img/furry2.png">
 
-<div class="info">
+<h3>Neo Fox</h3>
 
-<h3>Dragão Sombrio</h3>
+<p>Raposa hacker da cidade neon.</p>
 
-<button onclick="favoritar(this)">❤️ Favoritar</button>
-
-</div>
+<button onclick="curtir()">❤️ Curtir</button>
 
 </div>
+
+</section>
+
+
+<section class="avatar">
+
+<h2>Seu Avatar</h2>
+
+<img id="avatarImg" src="img/avatar.png">
+
+<br>
+
+<button onclick="trocarAvatar()">Trocar humor</button>
+
+</section>
+
+
+<section class="postar">
+
+<h2>Postar na Comunidade</h2>
+
+<textarea id="postText" placeholder="Compartilhe algo..."></textarea>
+
+<br>
+
+<button onclick="postar()">Postar</button>
+
+<div id="feed"></div>
 
 </section>
 
 
 <footer>
 
-<p>Furry Gallery © 2026</p>
+<p>🐾 Furry Universe © 2026</p>
 
 </footer>
 
