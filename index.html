@@ -2,6 +2,7 @@
 <html lang="pt-br">
 
 <head>
+
 <meta charset="UTF-8">
 <title>Furry Universe</title>
 
@@ -13,50 +14,62 @@
 
 <header>
 
-<h1>🐾 Furry Universe</h1>
+<div class="logoArea">
+
+<img src="img/logo.png" class="logo">
+
+<h1>Furry Universe</h1>
+
+</div>
 
 <nav>
+
 <a href="#">Home</a>
 <a href="#">Personagens</a>
 <a href="#">Comunidade</a>
+
 </nav>
 
 </header>
 
+
 <section class="hero">
 
-<h2>Bem-vindo ao mundo furry</h2>
-<p>Explore personagens, arte e a comunidade.</p>
+<h2>Bem-vindo ao Universo Furry</h2>
+
+<p>Arte, personagens e comunidade.</p>
+
+<button onclick="scrollGaleria()">Explorar</button>
 
 </section>
 
 
-<section class="characters">
+<section class="characters" id="galeria">
 
 <h2>Personagens</h2>
 
 <div class="card">
 
-<img src="img/furry1.png">
+<img src="img/furry1.jpg">
 
 <h3>Raven Wolf</h3>
 
-<p>Lobo explorador do norte.</p>
+<p>Lobo explorador.</p>
 
-<button onclick="curtir()">❤️ Curtir</button>
+<button onclick="curtir(this)">❤️ Curtir <span>0</span></button>
 
 </div>
 
 
 <div class="card">
 
-<img src="img/furry2.png">
+<img src="img/furry2.jpg">
 
 <h3>Neo Fox</h3>
 
-<p>Raposa hacker da cidade neon.</p>
+<p>Raposa hacker.</p>
 
-<button onclick="curtir()">❤️ Curtir</button>
+<button onclick="curtir(this)">❤️ Curtir <span>0</span></button>
 
 </div>
 
@@ -71,14 +84,14 @@
 
 <br>
 
-<button onclick="trocarAvatar()">Trocar humor</button>
+<button onclick="trocarHumor()">Trocar humor</button>
 
 </section>
 
 
 <section class="postar">
 
-<h2>Postar na Comunidade</h2>
+<h2>Comunidade</h2>
 
 <textarea id="postText" placeholder="Compartilhe algo..."></textarea>
 
@@ -93,7 +106,7 @@
 
 <footer>
 
-<p>🐾 Furry Universe © 2026</p>
+<p>🐾 Furry Universe</p>
 
 </footer>
 
