@@ -1,9 +1,14 @@
-function scrollGaleria(){
+function mostrarPagina(id){
 
-document.getElementById("galeria")
-.scrollIntoView({behavior:"smooth"});
+let paginas = document.querySelectorAll(".pagina");
+
+paginas.forEach(p => p.classList.remove("active"));
+
+document.getElementById(id).classList.add("active");
 
 }
+
+mostrarPagina("home");
 
 
 
@@ -11,33 +16,11 @@ function curtir(botao){
 
 let span = botao.querySelector("span");
 
-let valor = Number(span.innerText);
+let numero = Number(span.innerText);
 
-valor++;
+numero++;
 
-span.innerText = valor;
-
-}
-
-
-
-let humor = 0;
-
-function trocarHumor(){
-
-let avatar = document.getElementById("avatarImg");
-
-if(humor==0){
-
-avatar.style.transform="rotate(10deg) scale(1.1)";
-humor=1;
-
-}else{
-
-avatar.style.transform="rotate(0deg) scale(1)";
-humor=0;
-
-}
+span.innerText = numero;
 
 }
 
@@ -75,5 +58,27 @@ let numero = btn.innerText.split(" ")[1];
 numero++;
 
 btn.innerText="❤️ "+numero;
+
+}
+
+
+
+let humor=0;
+
+function trocarHumor(){
+
+let avatar = document.getElementById("avatarImg");
+
+if(humor==0){
+
+avatar.style.transform="rotate(10deg)";
+humor=1;
+
+}else{
+
+avatar.style.transform="rotate(0deg)";
+humor=0;
+
+}
 
 }
