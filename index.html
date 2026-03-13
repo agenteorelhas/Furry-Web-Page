@@ -12,41 +12,49 @@
 
 <body>
 
-<header>
+<div class="layout">
+
+<!-- MENU LATERAL -->
+
+<aside class="sidebar">
 
 <div class="logoArea">
 
-<img src="img/logo.png" class="logo">
-
-<h1>Furry Universe</h1>
+<img src="img/logo.png">
 
 </div>
 
-<nav>
+<button onclick="mostrarPagina('home')">🏠</button>
 
-<a href="#">Home</a>
-<a href="#">Personagens</a>
-<a href="#">Comunidade</a>
+<button onclick="mostrarPagina('personagens')">🐺</button>
 
-</nav>
+<button onclick="mostrarPagina('comunidade')">💬</button>
 
-</header>
+<button onclick="mostrarPagina('perfil')">👤</button>
+
+</aside>
 
 
-<section class="hero">
 
-<h2>Bem-vindo ao Universo Furry</h2>
+<!-- CONTEÚDO -->
 
-<p>Arte, personagens e comunidade.</p>
+<main class="content">
 
-<button onclick="scrollGaleria()">Explorar</button>
+<section id="home" class="pagina">
+
+<h1>🐾 Furry Universe</h1>
+
+<p>Bem-vindo ao universo furry.</p>
 
 </section>
 
 
-<section class="characters" id="galeria">
+
+<section id="personagens" class="pagina">
 
 <h2>Personagens</h2>
+
+<div class="cards">
 
 <div class="card">
 
@@ -54,9 +62,7 @@
 
 <h3>Raven Wolf</h3>
 
-<p>Lobo explorador.</p>
-
-<button onclick="curtir(this)">❤️ Curtir <span>0</span></button>
+<button onclick="curtir(this)">❤️ <span>0</span></button>
 
 </div>
 
@@ -67,29 +73,17 @@
 
 <h3>Neo Fox</h3>
 
-<p>Raposa hacker.</p>
+<button onclick="curtir(this)">❤️ <span>0</span></button>
 
-<button onclick="curtir(this)">❤️ Curtir <span>0</span></button>
+</div>
 
 </div>
 
 </section>
 
 
-<section class="avatar">
 
-<h2>Seu Avatar</h2>
-
-<img id="avatarImg" src="img/avatar.png">
-
-<br>
-
-<button onclick="trocarHumor()">Trocar humor</button>
-
-</section>
-
-
-<section class="postar">
+<section id="comunidade" class="pagina">
 
 <h2>Comunidade</h2>
 
@@ -104,14 +98,26 @@
 </section>
 
 
-<footer>
 
-<p>🐾 Furry Universe</p>
+<section id="perfil" class="pagina">
 
-</footer>
+<h2>Seu Avatar</h2>
+
+<img id="avatarImg" src="img/avatar.png">
+
+<br>
+
+<button onclick="trocarHumor()">Trocar humor</button>
+
+</section>
+
+
+
+</main>
+
+</div>
 
 <script src="script.js"></script>
 
 </body>
-
 </html>
