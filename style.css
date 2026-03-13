@@ -1,103 +1,141 @@
 body{
-background:linear-gradient(135deg,#1a1a2e,#16213e);
-color:white;
-font-family:Arial;
+
 margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
 text-align:center;
+
 }
 
 header{
-background:#0f3460;
-padding:20px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:#111;
+
+}
+
+.logoArea{
+
+display:flex;
+align-items:center;
+gap:10px;
+
+}
+
+.logo{
+
+width:50px;
+
 }
 
 nav a{
+
 color:white;
-margin:10px;
+margin-left:20px;
 text-decoration:none;
 font-weight:bold;
+
 }
 
 .hero{
-padding:60px;
-animation:fade 2s;
+
+padding:100px 20px;
+
+}
+
+.hero button{
+
+padding:12px 25px;
+font-size:16px;
+
 }
 
 .characters{
+
 display:flex;
 justify-content:center;
-gap:40px;
+gap:30px;
 flex-wrap:wrap;
 padding:40px;
+
 }
 
 .card{
-background:#1f4068;
-padding:20px;
+
+background:#1e1e1e;
 border-radius:15px;
 width:250px;
+padding:20px;
 transition:0.3s;
+
 }
 
 .card:hover{
+
 transform:scale(1.05);
-box-shadow:0 0 15px #00f2ff;
+box-shadow:0 0 20px #00ffff;
+
 }
 
 .card img{
+
 width:100%;
 border-radius:10px;
+
 }
 
 button{
-background:#e94560;
+
+background:#ff4b6e;
 border:none;
 padding:10px 20px;
-color:white;
 border-radius:10px;
+color:white;
 cursor:pointer;
-margin-top:10px;
+
 }
 
 button:hover{
-background:#ff2e63;
+
+background:#ff1e50;
+
 }
 
 .avatar img{
+
 width:150px;
 margin:20px;
 transition:0.3s;
+
 }
 
 textarea{
+
 width:300px;
 height:100px;
 border-radius:10px;
 padding:10px;
-}
 
-#feed{
-margin-top:20px;
 }
 
 .post{
-background:#1f4068;
+
+background:#1e1e1e;
+margin:15px auto;
 padding:10px;
-margin:10px auto;
 width:300px;
 border-radius:10px;
+
 }
 
-@keyframes fade{
+footer{
 
-from{
-opacity:0;
-transform:translateY(20px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
+margin-top:40px;
+padding:20px;
+background:#111;
 
 }
