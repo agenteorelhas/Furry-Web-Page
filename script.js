@@ -1,6 +1,21 @@
-function curtir(){
+function scrollGaleria(){
 
-alert("❤️ Você curtiu esse personagem!");
+document.getElementById("galeria")
+.scrollIntoView({behavior:"smooth"});
+
+}
+
+
+
+function curtir(botao){
+
+let span = botao.querySelector("span");
+
+let valor = Number(span.innerText);
+
+valor++;
+
+span.innerText = valor;
 
 }
 
@@ -8,23 +23,19 @@ alert("❤️ Você curtiu esse personagem!");
 
 let humor = 0;
 
-function trocarAvatar(){
+function trocarHumor(){
 
 let avatar = document.getElementById("avatarImg");
 
-if(humor == 0){
+if(humor==0){
 
-avatar.style.transform = "rotate(10deg)";
-alert("Avatar feliz 🐾");
-
-humor = 1;
+avatar.style.transform="rotate(10deg) scale(1.1)";
+humor=1;
 
 }else{
 
-avatar.style.transform = "rotate(0deg)";
-alert("Avatar neutro");
-
-humor = 0;
+avatar.style.transform="rotate(0deg) scale(1)";
+humor=0;
 
 }
 
@@ -36,18 +47,33 @@ function postar(){
 
 let texto = document.getElementById("postText").value;
 
-if(texto == "") return;
+if(texto=="") return;
 
 let feed = document.getElementById("feed");
 
 let post = document.createElement("div");
 
-post.className = "post";
+post.className="post";
 
-post.innerText = texto;
+post.innerHTML = `
+<p>${texto}</p>
+<button onclick="likePost(this)">❤️ 0</button>
+`;
 
 feed.prepend(post);
 
-document.getElementById("postText").value = "";
+document.getElementById("postText").value="";
+
+}
+
+
+
+function likePost(btn){
+
+let numero = btn.innerText.split(" ")[1];
+
+numero++;
+
+btn.innerText="❤️ "+numero;
 
 }
