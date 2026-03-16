@@ -88,3 +88,25 @@ function filterSelection(category) {
         }
     }
 }
+
+document.querySelectorAll('.btn-order').forEach(button => {
+    button.onclick = function() {
+        // Pega o nome do plano (Sketch, Full Color, etc) que está no h3 acima do botão
+        const tipoServico = this.parentElement.querySelector('h3').innerText;
+        const meuNumero = "5511999999999"; // COLOQUE SEU NÚMERO AQUI (com DDD)
+        
+        const texto = `Olá! Vi seu portfólio e gostaria de fazer um pedido de: ${tipoServico}`;
+        const url = `https://wa.me/${meuNumero}?text=${encodeURIComponent(texto)}`;
+        
+        window.open(url, '_blank');
+    };
+});
+
+// Fecha o modal ao clicar fora da imagem ou no botão fechar
+window.onclick = function(event) {
+    const modal = document.getElementById("imageModal");
+    if (event.target == modal || event.target.classList.contains('close')) {
+        modal.style.display = "none";
+    }
+}
+
