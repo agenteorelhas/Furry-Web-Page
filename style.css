@@ -248,3 +248,36 @@ section {
     font-size: 40px;
     cursor: pointer;
 }
+
+/* Estilo específico para o selo 'Mais Popular' */
+.price-card {
+    position: relative; /* Necessário para posicionar o badge dentro dele */
+    padding-top: 50px;  /* Abre espaço no topo para o badge não cobrir o texto */
+}
+
+.badge {
+    position: absolute;
+    top: -15px;         /* Faz ele 'flutuar' um pouco acima da borda */
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--pink);
+    color: var(--bg-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px var(--pink);
+    white-space: nowrap;
+    z-index: 2;
+}
+
+/* Garante que o container de preços alinhe os cards corretamente */
+.price-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Faz todos os cards terem a mesma altura */
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
