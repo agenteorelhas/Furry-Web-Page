@@ -121,3 +121,40 @@ nav a:hover {
 .close:hover {
     color: var(--pink);
 }
+
+/* Estilo do Skeleton */
+.skeleton {
+    background-color: var(--current-line);
+    background-image: linear-gradient(
+        90deg, 
+        var(--current-line) 0px, 
+        #50546d 40px, 
+        var(--current-line) 80px
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite linear;
+    border-radius: 8px;
+    height: 300px; /* Mesma altura média dos seus cards */
+    width: 100%;
+    display: block;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Esconde a imagem real enquanto carrega */
+.art-card img {
+    display: none;
+}
+
+/* Classe para mostrar a imagem quando estiver pronta */
+.img-loaded {
+    display: block !important;
+}
+
