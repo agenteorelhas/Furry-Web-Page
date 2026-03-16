@@ -93,3 +93,29 @@ function filterSelection(category) {
         }
     }
 }
+
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("imgFull");
+const captionText = document.getElementById("caption");
+const span = document.getElementsByClassName("close")[0];
+
+// Seleciona todas as imagens dentro dos art-cards
+document.querySelectorAll('.art-card img').forEach(img => {
+    img.onclick = function() {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt; // Usa o 'alt' da imagem como legenda
+    }
+});
+
+// Fecha o modal ao clicar no 'X'
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// Fecha o modal ao clicar fora da imagem
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
