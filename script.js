@@ -1,5 +1,5 @@
-// Partículas Background
-if (document.getElementById('particles-js')) {
+// Partículas (Sem erros)
+if (typeof particlesJS !== 'undefined') {
     particlesJS('particles-js', {
         "particles": {
             "number": { "value": 80 },
@@ -27,3 +27,13 @@ function filterSelection(category) {
         if(btn.getAttribute('onclick').includes(category)) btn.classList.add("active");
     });
 }
+
+// WhatsApp Link
+document.querySelectorAll('.btn-order').forEach(button => {
+    button.addEventListener('click', function() {
+        const servico = this.parentElement.querySelector('h3').innerText;
+        const meuNumero = "5511999999999"; // <--- Coloque seu número aqui
+        const texto = encodeURIComponent(`Olá Guilherme! Gostaria de pedir uma commission do tipo: ${servico}`);
+        window.open(`https://wa.me/${meuNumero}?text=${texto}`, '_blank');
+    });
+});
