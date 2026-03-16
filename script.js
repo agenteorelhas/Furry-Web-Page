@@ -65,7 +65,7 @@ if (typeof particlesJS !== 'undefined') {
 function filterSelection(category) {
     const cards = document.getElementsByClassName("art-card");
     
-    // Mostra tudo se a categoria for 'all', senão filtra
+    // 1. Lógica de Filtragem
     for (let i = 0; i < cards.length; i++) {
         if (category === "all" || cards[i].classList.contains(category)) {
             cards[i].style.display = "block";
@@ -73,6 +73,19 @@ function filterSelection(category) {
             cards[i].style.display = "none";
         }
     }
+
+    // 2. Lógica do Brilho Neon (Botão Ativo)
+    const buttons = document.querySelectorAll('.filter-buttons button');
+    buttons.forEach(btn => {
+        btn.classList.remove('active'); // Remove o brilho de todos
+        
+        // Se o texto do botão ou o evento bater com a categoria, adiciona o brilho
+        // Nota: O 'this' ou o evento seriam ideais, mas como o onclick está no HTML,
+        // vamos comparar pelo argumento da função.
+        if(btn.getAttribute('onclick').includes(category)) {
+            btn.classList.add('active');
+        }
+    });
 }
 
 /**
