@@ -1,14 +1,11 @@
+// Carregamento de Partículas
 function loadParticles() {
     if (!document.getElementById('particles-js')) return;
-
     const isMobile = window.innerWidth < 768;
     
     particlesJS('particles-js', {
         "particles": {
-            "number": { 
-                "value": isMobile ? 30 : 80, 
-                "density": { "enable": true, "value_area": 800 } 
-            },
+            "number": { "value": isMobile ? 30 : 80, "density": { "enable": true, "value_area": 800 } },
             "color": { "value": "#bd93f9" },
             "opacity": { "value": 0.5 },
             "size": { "value": 3 },
@@ -16,7 +13,7 @@ function loadParticles() {
             "move": { "enable": true, "speed": 1.5 }
         },
         "interactivity": {
-            "detect_on": "window", 
+            "detect_on": "window",
             "events": {
                 "onhover": { "enable": !isMobile, "mode": "grab" },
                 "onclick": { "enable": true, "mode": "push" }
@@ -26,27 +23,29 @@ function loadParticles() {
     });
 }
 
-// Filtro
+// Filtro de Galeria
 function filterSelection(category) {
     const cards = document.querySelectorAll(".art-card");
     const btns = document.querySelectorAll(".filter-buttons button");
 
+    // Mostra/Esconde Cards
     cards.forEach(card => {
-        card.style.display = (category === "all" || card.classList.contains(category)) ? "block" : "none";
+        if (category === "all" || card.classList.contains(category)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
     });
 
+    // Ativa Botão Correto
     btns.forEach(btn => {
         btn.classList.remove("active");
-        if(btn.getAttribute('onclick').includes(category)) btn.classList.add("active");
+        if (btn.getAttribute('onclick').includes(`'${category}'`)) {
+            btn.classList.add("active");
+        }
     });
 }
 
-// Inicializar ao carregar a página
-window.onload = () => {
-    loadParticles();
-};
-
-// Recarregar se mudar o tamanho da tela (PC -> Celular)
-window.onresize = () => {
-    loadParticles();
-};
+// Inicialização segura
+window.onload = loadParticles;
+window.onresize = loadParticles;
