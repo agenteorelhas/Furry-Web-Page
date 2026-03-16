@@ -180,3 +180,88 @@ nav a:hover {
     cursor: pointer;
     transition: filter 0.3s ease;
 }
+
+#commissions {
+    padding: 50px 20px;
+    background-color: var(--bg-color);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.price-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.price-card {
+    background: var(--current-line);
+    border: 2px solid var(--purple);
+    border-radius: 15px;
+    padding: 30px;
+    width: 280px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.price-card:hover {
+    transform: scale(1.05);
+}
+
+.price-card.featured {
+    border-color: var(--pink);
+    box-shadow: 0 0 20px rgba(255, 121, 198, 0.2);
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--pink);
+    color: var(--bg-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--purple);
+    margin: 20px 0;
+}
+
+.price-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    color: var(--comment);
+}
+
+.price-card li {
+    margin-bottom: 10px;
+}
+
+.btn-order {
+    background: var(--purple);
+    color: var(--bg-color);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.btn-order:hover {
+    background: var(--pink);
+    box-shadow: 0 0 15px var(--pink);
+}
