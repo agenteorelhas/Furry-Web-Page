@@ -82,3 +82,21 @@ section {
 .section-title {
     text-align: center;
     margin-bottom: 40px;
+
+}
+
+/* Efeito Neon nos Botões de Filtro */
+.filter-buttons button.active {
+    background: var(--purple);
+    color: var(--bg-color);
+    border-color: var(--pink); /* Bordas levemente rosadas no brilho */
+    box-shadow: 0 0 15px var(--purple), 0 0 30px rgba(189, 147, 249, 0.5);
+    transform: scale(1.05);
+    text-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+/* Pequeno ajuste para o botão não brilhar apenas quando clicado, 
+   mas também ter um feedback visual ao passar o mouse */
+.filter-buttons button:hover {
+    box-shadow: 0 0 10px var(--purple);
+}
