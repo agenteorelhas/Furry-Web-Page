@@ -11,9 +11,9 @@
         <nav>
             <div class="logo">MyFurryGallery</div>
             <ul>
-                <li><a href="#home">Home</a></li>
+                <li><a href="#hero">Home</a></li>
                 <li><a href="#gallery">Galeria</a></li>
-                <li><a href="#contact">Contato</a></li>
+                <li><a href="#commissions">Commissions</a></li>
             </ul>
         </nav>
     </header>
@@ -32,102 +32,93 @@
                 <button onclick="filterSelection('felines')">Felinos</button>
                 <button onclick="filterSelection('rabbits')">Coelhos</button>
             </div>
-            <section id="commissions">
-    <div class="section-title">
-        <h2>Commissions</h2>
-        <p>Transforme sua ideia em arte! Confira as opções abaixo:</p>
-    </div>
-
-    <div class="price-container">
-        <div class="price-card">
-            <h3>Sketch</h3>
-            <div class="price">R$ 50</div>
-            <ul>
-                <li>Esboço detalhado</li>
-                <li>Sem cores</li>
-                <li>1 Revisão</li>
-            </ul>
-            <button class="btn-order">Pedir Agora</button>
-        </div>
-
-        <div class="price-card featured">
-            <div class="badge">Mais Popular</div>
-            <h3>Full Color</h3>
-            <div class="price">R$ 150</div>
-            <ul>
-                <li>Lineart limpa</li>
-                <li>Pintura completa</li>
-                <li>Sombreado detalhado</li>
-                <li>3 Revisões</li>
-            </ul>
-            <button class="btn-order">Pedir Agora</button>
-        </div>
-
-        <div class="price-card">
-            <h3>Ref Sheet</h3>
-            <div class="price">R$ 250</div>
-            <ul>
-                <li>Frente, costas e perfil</li>
-                <li>Paleta de cores</li>
-                <li>Detalhes do personagem</li>
-            </ul>
-            <button class="btn-order">Pedir Agora</button>
-        </div>
-    </div>
-</section>
+            
             <div class="grid-container" id="artGrid">
                 <div class="art-card canines">
-                    <img src="https://via.placeholder.com/300x400" alt="Arte de Lobo">
+                    <div class="skeleton"></div>
+                    <img src="https://via.placeholder.com/300x400" alt="Arte de Lobo" onload="imageLoaded(this)">
                     <p>Lobo Guerreiro</p>
                 </div>
                 <div class="art-card rabbits">
-                    <img src="https://via.placeholder.com/300x400" alt="Arte de Coelho">
+                    <div class="skeleton"></div>
+                    <img src="https://via.placeholder.com/300x400" alt="Arte de Coelho" onload="imageLoaded(this)">
                     <p>Coelho Branco (Olhos Vermelhos)</p>
                 </div>
                 <div class="art-card canines">
-    <div class="skeleton"></div>
-    
-    <img src="sua-arte-aqui.jpg" alt="Descrição da Arte" onload="imageLoaded(this)">
-    
-    <p>Nome da Obra</p>
-</div>
+                    <div class="skeleton"></div>
+                    <img src="sua-arte-aqui.jpg" alt="Descrição da Arte" onload="imageLoaded(this)">
+                    <p>Nome da Obra</p>
                 </div>
+            </div>
+        </section>
+
+        <section id="commissions">
+            <div class="section-title">
+                <h2>Commissions</h2>
+                <p>Transforme sua ideia em arte! Confira as opções abaixo:</p>
+            </div>
+
+            <div class="price-container">
+                <div class="price-card">
+                    <h3>Sketch</h3>
+                    <div class="price">R$ 50</div>
+                    <ul>
+                        <li>Esboço detalhado</li>
+                        <li>Sem cores</li>
+                        <li>1 Revisão</li>
+                    </ul>
+                    <button class="btn-order">Pedir Agora</button>
+                </div>
+
+                <div class="price-card featured">
+                    <div class="badge">Mais Popular</div>
+                    <h3>Full Color</h3>
+                    <div class="price">R$ 150</div>
+                    <ul>
+                        <li>Lineart limpa</li>
+                        <li>Pintura completa</li>
+                        <li>3 Revisões</li>
+                    </ul>
+                    <button class="btn-order">Pedir Agora</button>
+                </div>
+
+                <div class="price-card">
+                    <h3>Ref Sheet</h3>
+                    <div class="price">R$ 250</div>
+                    <ul>
+                        <li>Frente, costas e perfil</li>
+                        <li>Paleta de cores</li>
+                        <li>Detalhes do personagem</li>
+                    </ul>
+                    <button class="btn-order">Pedir Agora</button>
+                </div>
+            </div>
         </section>
     </main>
 
-    <script src="script.js"></script>
-
     <div id="imageModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="imgFull">
-    <div id="caption"></div>
-</div>
+        <span class="close">&times;</span>
+        <img class="modal-content" id="imgFull" alt="Preview">
+        <div id="caption"></div>
+    </div>
 
     <footer>
-    <div class="footer-content">
-        <div class="footer-section about">
-            <h3>Guilherme Reis</h3>
-            <p>Desenvolvedor e Artista Digital. Transformando imaginação em realidade através de código e cores.</p>
-        </div>
-        
-        <div class="footer-section social-links">
-            <h3>Siga-me</h3>
-            <div class="icons">
-                <a href="https://twitter.com/seuusuario" target="_blank" title="Twitter/X">𝕏</a>
-                <a href="https://bsky.app/profile/seuusuario" target="_blank" title="Bluesky">🦋</a>
-                <a href="https://instagram.com/seuusuario" target="_blank" title="Instagram">📸</a>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>Guilherme Reis</h3>
+                <p>Desenvolvedor e Artista Digital. Transformando imaginação em realidade através de código e cores.</p>
             </div>
-        </div>
+            
+            <div class="footer-section social-links">
+                <h3>Siga-me</h3>
+                <div class="icons">
+                    <a href="https://twitter.com/seuusuario" target="_blank" title="Twitter/X">𝕏</a>
+                    <a href="https://bsky.app/profile/seuusuario" target="_blank" title="Bluesky">🦋</a>
+                    <a href="https://instagram.com/seuusuario" target="_blank" title="Instagram">📸</a>
+                </div>
+            </div>
 
-        <div class="footer-section contact-info">
-            <h3>Contato</h3>
-            <p>📧 contato@seuemail.com</p>
-            <p>📍 São Paulo, Brasil</p>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        &copy; 2026 Guilherme Reis | Feito com 💜 e Tecnologia
-    </div>
-</footer>
-</body>
-</html>
+            <div class="footer-section contact-info">
+                <h3>Contato</h3>
+                <p>📧 contato@seuemail.com</p>
+                <p>📍 São Paulo
