@@ -119,3 +119,16 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+function imageLoaded(img) {
+    // 1. Encontra o skeleton que está no mesmo card que a imagem
+    const skeleton = img.previousElementSibling;
+    
+    // 2. Esconde o skeleton
+    if (skeleton && skeleton.classList.contains('skeleton')) {
+        skeleton.style.display = 'none';
+    }
+    
+    // 3. Mostra a imagem com uma transição suave
+    img.classList.add('img-loaded');
+}
