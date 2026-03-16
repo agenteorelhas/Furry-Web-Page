@@ -1,3 +1,4 @@
+/* Cores Tema Dracula */
 :root {
     --bg-color: #282a36;
     --current-line: #44475a;
@@ -7,41 +8,55 @@
     --pink: #ff79c6;
 }
 
-html { scroll-behavior: smooth; }
+/* Configurações Globais */
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     background-color: var(--bg-color);
     color: var(--foreground);
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
+    line-height: 1.6;
     overflow-x: hidden;
 }
 
+/* Particles Background */
 #particles-js {
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: -1;
     top: 0;
     left: 0;
+    z-index: -1;
+    background-color: var(--bg-color);
 }
 
+/* Cabeçalho e Navegação */
 header {
     background-color: var(--current-line);
     padding: 1rem 2rem;
     border-bottom: 2px solid var(--purple);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 nav ul {
+    list-style: none;
     display: flex;
     gap: 20px;
-    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 nav a {
@@ -51,81 +66,19 @@ nav a {
     transition: 0.3s;
 }
 
-nav a:hover { color: var(--pink); }
-
-section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
-
-/* Grid da Galeria */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 25px;
+nav a:hover {
+    color: var(--pink);
 }
 
-.art-card {
-    background: var(--current-line);
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid transparent;
-    transition: 0.3s;
+/* Seções Gerais */
+section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
-.art-card:hover { transform: translateY(-8px); border-color: var(--pink); }
-
-.art-card img { width: 100%; display: none; cursor: pointer; }
-
-.img-loaded { display: block !important; animation: fadeIn 0.8s forwards; }
-
-/* Botões de Filtro e Pedido */
-.filter-buttons { margin-bottom: 30px; display: flex; gap: 10px; flex-wrap: wrap; }
-
-button {
-    background: var(--current-line);
-    color: var(--purple);
-    border: 1px solid var(--purple);
-    padding: 8px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover, .btn-order {
-    background: var(--purple);
-    color: var(--bg-color);
-    font-weight: bold;
-}
-
-/* Container de Preços (Commissions) */
-.price-container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.price-card {
-    background: var(--current-line);
-    border: 2px solid var(--purple);
-    padding: 25px;
-    border-radius: 15px;
-    width: 280px;
+.section-title {
     text-align: center;
-}
-
-.price-card.featured { border-color: var(--pink); }
-
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0; top: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.9);
-    backdrop-filter: blur(5px);
-}
-
-.modal-content { margin: auto; display: block; max-width: 80%; max-height: 80vh; position: relative; top: 50%; transform: translateY(-50%); }
-
-.close { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
-
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    margin-bottom: 40px;
