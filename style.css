@@ -13,30 +13,38 @@ body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     overflow-x: hidden;
-    line-height: 1.6;
 }
 
-#particles-js {
-    position: fixed;
-    width: 100%; height: 100%;
-    z-index: -1; top: 0;
-}
+#particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; top: 0; }
 
+/* Cabeçalho Glassmorphism */
 header {
-    background: var(--current-line);
-    padding: 1rem 2rem;
+    background: rgba(40, 42, 54, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 15px 5%;
     border-bottom: 2px solid var(--purple);
-    position: sticky; top: 0; z-index: 100;
+    position: sticky; top: 0; z-index: 1000;
+    transition: 0.3s;
 }
 
 nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
-nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
-nav a { color: var(--purple); text-decoration: none; font-weight: bold; }
+.logo { font-size: 1.8rem; font-weight: 800; color: var(--foreground); letter-spacing: -1px; }
+.logo span { color: var(--purple); text-shadow: 0 0 10px rgba(189, 147, 249, 0.5); }
 
-section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; position: relative; }
+nav ul { display: flex; gap: 30px; list-style: none; margin: 0; }
+nav ul li a { 
+    color: var(--foreground); 
+    text-decoration: none; 
+    font-weight: 600; 
+    position: relative;
+    transition: 0.3s; 
+}
+nav ul li a:hover { color: var(--pink); }
+
+/* Galeria com Efeito Zoom */
+section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
 .section-title { text-align: center; margin-bottom: 40px; color: var(--pink); }
 
-/* Galeria GRID - Fixados para não gigantes */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 320px));
@@ -49,105 +57,52 @@ section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; position: relat
     border-radius: 12px;
     padding: 15px;
     text-align: center;
+    overflow: hidden; /* Mantém a imagem dentro do card no zoom */
     border: 1px solid transparent;
     transition: 0.3s;
 }
 
 .art-card:hover { border-color: var(--pink); transform: translateY(-5px); }
-.art-card img { width: 100%; border-radius: 8px; margin-bottom: 10px; cursor: pointer; }
 
-/* Botões Neon */
+.art-card img { 
+    width: 100%; 
+    height: 350px; /* Altura padronizada para as artes */
+    object-fit: cover; /* Corta a imagem sem distorcer */
+    border-radius: 8px; 
+    margin-bottom: 10px; 
+    transition: transform 0.5s ease;
+}
+
+.art-card:hover img { transform: scale(1.1); }
+
+/* Filtros Neon */
 .filter-buttons { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; }
 .filter-buttons button {
     background: var(--current-line); color: var(--purple);
     border: 2px solid var(--purple); padding: 10px 20px; border-radius: 8px; cursor: pointer;
 }
-.filter-buttons button.active {
-    background: var(--purple); color: var(--bg-color);
-    box-shadow: 0 0 15px var(--purple); transform: scale(1.05);
-}
+.filter-buttons button.active { background: var(--purple); color: var(--bg-color); box-shadow: 0 0 15px var(--purple); }
 
-/* Commissions e Badge */
-.price-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 50px; }
+/* Commissions */
+.price-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
 .price-card {
     background: var(--current-line); border: 2px solid var(--purple);
     padding: 40px 20px 20px; border-radius: 15px; width: 280px;
-    position: relative; display: flex; flex-direction: column; text-align: center;
+    position: relative; text-align: center;
 }
-.price-card.featured { border-color: var(--pink); box-shadow: 0 0 15px rgba(255, 121, 198, 0.2); }
-
+.price-card.featured { border-color: var(--pink); }
 .badge {
     position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
-    background: var(--pink); color: var(--bg-color); padding: 5px 15px;
-    border-radius: 20px; font-weight: bold; font-size: 0.8rem;
+    background: var(--pink); color: var(--bg-color); padding: 5px 15px; border-radius: 20px; font-weight: bold;
 }
-
 .price { font-size: 2rem; color: var(--purple); margin: 15px 0; font-weight: bold; }
 .btn-order {
     background: var(--purple); color: var(--bg-color); border: none;
-    padding: 12px; border-radius: 25px; cursor: pointer; font-weight: bold; margin-top: auto;
+    padding: 12px; border-radius: 25px; cursor: pointer; font-weight: bold; width: 100%;
 }
 
-/* Footer em Colunas */
+/* Rodapé */
 footer { background: var(--current-line); padding: 40px 20px; border-top: 2px solid var(--purple); margin-top: 50px; }
-.footer-content { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    max-width: 1200px; margin: 0 auto; gap: 30px; 
-}
+.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); max-width: 1200px; margin: 0 auto; gap: 30px; }
 .icons { display: flex; gap: 20px; font-size: 1.5rem; margin-top: 10px; }
-.icons a { text-decoration: none; transition: 0.3s; }
 .footer-bottom { text-align: center; padding-top: 20px; margin-top: 20px; border-top: 1px solid var(--comment); color: var(--comment); }
-
-}
-
-.art-card {
-    width: 300px;               /* Largura fixa do card */
-    background: #44475a;        /* Cor de fundo (Dracula) */
-    border-radius: 12px;        /* Bordas arredondadas */
-    overflow: hidden;           /* Garante que a imagem não saia das bordas */
-    border: 1px solid #bd93f9;  /* Borda roxa fina */
-}
-
-.art-card img {
-    width: 100%;                /* Faz a imagem ocupar toda a largura do card */
-    height: 200px;              /* Define uma altura fixa para padronizar todos os cards */
-    object-fit: cover;          /* CRITICAL: Corta a imagem para preencher o espaço sem esticar */
-    display: block;             /* Remove espaços vazios estranhos abaixo da imagem */
-}
-
-.card-info {
-    padding: 15px;              /* Espaçamento interno para o texto não encostar na borda */
-    text-align: center;
-}
-
-/* 1. O card precisa esconder a imagem quando ela crescer */
-.art-card {
-    background: var(--current-line);
-    border-radius: 12px;
-    padding: 15px;
-    text-align: center;
-    border: 1px solid transparent;
-    transition: 0.3s;
-    
-    /* ESSENCIAL: Impede que a imagem saia das bordas arredondadas ao dar zoom */
-    overflow: hidden; 
-}
-
-/* 2. Definimos como a imagem se comporta normalmente */
-.art-card img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    display: block;
-    
-    /* Transição suave para o zoom (0.5 segundos) */
-    transition: transform 0.5s ease; 
-}
-
-/* 3. O efeito de zoom quando o mouse passa por CIMA DO CARD */
-.art-card:hover img {
-    /* Aumenta a imagem em 10% (1.1). 
-       Use 1.2 para um zoom mais forte */
-    transform: scale(1.1); 
-}
