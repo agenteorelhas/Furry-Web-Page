@@ -2,13 +2,18 @@
 if (typeof particlesJS !== 'undefined') {
     particlesJS('particles-js', {
         "particles": {
-            "number": { "value": 80 },
+            "number": { 
+                "value": window.innerWidth < 768 ? 30 : 80, // Menos partículas no celular
+                "density": { "enable": true, "value_area": 800 } 
+            },
             "color": { "value": ["#bd93f9", "#ff79c6"] },
-            "shape": { "type": "circle" },
             "opacity": { "value": 0.5 },
             "size": { "value": 3 },
-            "line_linked": { "enable": true, "distance": 150, "color": "#6272a4", "opacity": 0.4 },
+            "line_linked": { "enable": true, "distance": 150, "color": "#6272a4", "opacity": 0.3 },
             "move": { "enable": true, "speed": 1.5 }
+        },
+        "interactivity": {
+            "events": { "onhover": { "enable": window.innerWidth > 768 } } // Desativa hover no toque do celular
         }
     });
 }
