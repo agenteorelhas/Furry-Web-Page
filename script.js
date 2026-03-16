@@ -132,3 +132,14 @@ function imageLoaded(img) {
     // 3. Mostra a imagem com uma transição suave
     img.classList.add('img-loaded');
 }
+
+function imageLoaded(img) {
+    const skeleton = img.previousElementSibling;
+    
+    if (skeleton && skeleton.classList.contains('skeleton')) {
+        skeleton.style.display = 'none';
+    }
+    
+    // Ao adicionar esta classe, o CSS disparará a animação de Fade-in automaticamente
+    img.classList.add('img-loaded');
+}
