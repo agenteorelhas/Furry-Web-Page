@@ -72,4 +72,17 @@ if (typeof particlesJS === 'function') {
             "size": { "value": 3, "random": true },
             "line_linked": { 
                 "enable": true, 
-                "distance": 15
+                "distance": 150, 
+                "color": "#6272a4", // Comentário Dracula
+                "opacity": 0.4, 
+                "width": 1 
+            },
+            "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" } }
+        },
+        "retina_detect": true
+    });
+}
