@@ -10,7 +10,7 @@
 
 /* Configurações Globais */
 html {
-    scroll-behavior: smooth; /* Ativa a rolagem suave nativa */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -19,6 +19,18 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Particles Background */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: var(--bg-color);
 }
 
 /* Cabeçalho e Navegação */
@@ -26,7 +38,7 @@ header {
     background-color: var(--current-line);
     padding: 1rem 2rem;
     border-bottom: 2px solid var(--purple);
-    position: sticky; /* Opcional: mantém o menu visível ao rolar */
+    position: sticky;
     top: 0;
     z-index: 100;
 }
@@ -58,19 +70,13 @@ nav a:hover {
     color: var(--pink);
 }
 
-/* Seções Gerais */
+/* Galeria e Grid */
 section {
     padding: 60px 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-/* Galeria e Grid */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -83,6 +89,7 @@ section {
     overflow: hidden;
     transition: transform 0.3s ease, border-color 0.3s ease;
     border: 1px solid transparent;
+    position: relative;
 }
 
 .art-card:hover {
@@ -90,20 +97,34 @@ section {
     border-color: var(--pink);
 }
 
+/* Imagem e Skeleton */
 .art-card img {
     width: 100%;
     height: auto;
-    display: none; /* Escondida até carregar (via JS) */
-
+    display: none; /* Controlado pelo script.js */
+    cursor: pointer;
 }
 
-#particles-js{
-
-position:fixed;
-width:100%;
-height:100%;
-top:0;
-left:0;
-z-index:-1;
-
+.skeleton {
+    background-color: var(--current-line);
+    background-image: linear-gradient(90deg, var(--current-line) 0px, #50546d 40px, var(--current-line) 80px);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite linear;
+    height: 350px; 
+    width: 100%;
 }
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Transição de Entrada da Imagem */
+.img-loaded {
+    display: block !important;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform
