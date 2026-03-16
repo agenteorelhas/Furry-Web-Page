@@ -147,3 +147,28 @@ footer {
     nav { flex-direction: column; gap: 10px; }
     .price-card.featured { transform: scale(1); }
 }
+
+/* Ajuste para o link do WhatsApp não quebrar o layout */
+.btn-link {
+    text-decoration: none;
+    display: block;
+    margin-top: auto; /* Garante que o botão fique sempre no final do card */
+}
+
+.btn-order {
+    width: 100%; /* Faz o botão ocupar a largura do link */
+    background: var(--purple);
+    color: var(--bg-color);
+    border: none;
+    padding: 12px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-order:hover {
+    background: var(--pink);
+    box-shadow: 0 0 15px var(--pink);
+    transform: scale(1.02);
+}
