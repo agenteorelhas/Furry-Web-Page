@@ -143,3 +143,12 @@ function imageLoaded(img) {
     // Ao adicionar esta classe, o CSS disparará a animação de Fade-in automaticamente
     img.classList.add('img-loaded');
 }
+
+document.querySelectorAll('.btn-order').forEach(button => {
+    button.onclick = function() {
+        const item = this.parentElement.querySelector('h3').innerText;
+        const mensagem = encodeURIComponent(`Olá! Gostaria de encomendar uma commission do tipo: ${item}`);
+        // Exemplo com WhatsApp (insira seu número)
+        window.open(`https://wa.me/SEUNUMERO?text=${mensagem}`, '_blank');
+    };
+});
