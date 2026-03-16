@@ -158,3 +158,19 @@ nav a:hover {
     display: block !important;
 }
 
+/* Nova regra para o efeito de entrada */
+.img-loaded {
+    display: block !important;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px); /* Começa um pouco abaixo */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Sobe para a posição original */
+    }
+}
