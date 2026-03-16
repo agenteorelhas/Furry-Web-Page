@@ -1,5 +1,5 @@
-// Partículas
-if (typeof particlesJS !== 'undefined') {
+// Partículas Background
+if (document.getElementById('particles-js')) {
     particlesJS('particles-js', {
         "particles": {
             "number": { "value": 80 },
@@ -13,33 +13,17 @@ if (typeof particlesJS !== 'undefined') {
     });
 }
 
-// Filtro Neon
+// Filtro da Galeria
 function filterSelection(category) {
     const cards = document.querySelectorAll(".art-card");
-    const buttons = document.querySelectorAll(".filter-buttons button");
+    const btns = document.querySelectorAll(".filter-buttons button");
 
     cards.forEach(card => {
         card.style.display = (category === "all" || card.classList.contains(category)) ? "block" : "none";
     });
 
-    buttons.forEach(btn => {
+    btns.forEach(btn => {
         btn.classList.remove("active");
-        if (btn.getAttribute('onclick').includes(category)) btn.classList.add("active");
+        if(btn.getAttribute('onclick').includes(category)) btn.classList.add("active");
     });
 }
-
-// Carregamento de Imagem
-function imageLoaded(img) {
-    const skeleton = img.previousElementSibling;
-    if (skeleton) skeleton.style.display = 'none';
-    img.classList.add('img-loaded');
-}
-
-// WhatsApp
-document.querySelectorAll('.btn-order').forEach(button => {
-    button.addEventListener('click', function() {
-        const servico = this.parentElement.querySelector('h3').innerText;
-        const texto = encodeURIComponent(`Olá Guilherme! Gostaria de pedir uma commission: ${servico}`);
-        window.open(`https://wa.me/5511999999999?text=${texto}`, '_blank');
-    });
-});
