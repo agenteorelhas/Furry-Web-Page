@@ -1,51 +1,50 @@
 /**
- * Lógica de Filtragem da Galeria
+ * 1. Lógica de Filtragem da Galeria
+ * Filtra os cards por categoria (canines, felines, rabbits, etc.)
  */
 function filterSelection(category) {
     const cards = document.getElementsByClassName("art-card");
     
-    for (let card of cards) {
-        if (category === "all" || card.classList.contains(category)) {
-            card.style.display = "block";
+    for (let i = 0; i < cards.length; i++) {
+        if (category === "all" || cards[i].classList.contains(category)) {
+            cards[i].style.display = "block";
         } else {
-            card.style.display = "none";
+            cards[i].style.display = "none";
         }
     }
 }
 
 /**
- * Lógica do Modal de Imagem
+ * 2. Lógica do Modal de Imagem
+ * Abre a imagem em tela cheia e gerencia o fechamento
  */
 const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("imgFull");
 const captionText = document.getElementById("caption");
-const span = document.querySelector(".close"); // Use querySelector para ser mais direto
 
-// Função para abrir o modal
+// Função para abrir o modal ao clicar na imagem
 document.querySelectorAll('.art-card img').forEach(img => {
     img.addEventListener('click', function() {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
+        if (modal && modalImg) {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
     });
 });
 
-// Fecha o modal ao clicar no 'X'
-if (span) {
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-}
-
-// Fecha o modal ao clicar fora da imagem
+// Fecha o modal ao clicar fora da imagem ou no botão 'X' (fechar)
 window.addEventListener('click', function(event) {
-    if (event.target == modal) {
+    const modal = document.getElementById("imageModal");
+    // Verifica se clicou no fundo do modal ou no elemento com a classe 'close'
+    if (event.target == modal || event.target.classList.contains('close')) {
         modal.style.display = "none";
     }
 });
 
 /**
- * Lógica de Carregamento (Skeleton Screen)
+ * 3. Lógica de Carregamento (Skeleton Screen)
+ * Remove o esqueleto e aplica o fade-in quando a imagem carrega
  */
 function imageLoaded(img) {
     const skeleton = img.previousElementSibling;
@@ -54,59 +53,20 @@ function imageLoaded(img) {
         skeleton.style.display = 'none';
     }
     
-    // Dispara a animação de Fade-in definida no CSS
+    // Adiciona a classe que dispara a animação CSS
     img.classList.add('img-loaded');
 }
 
 /**
- * Lógica dos Botões de Commission
+ * 4. Lógica dos Botões de Commission (WhatsApp)
+ * Envia uma mensagem personalizada baseada no plano escolhido
  */
 document.querySelectorAll('.btn-order').forEach(button => {
-    button.onclick = function() {
-        const item = this.parentElement.querySelector('h3').innerText;
-        const mensagem = encodeURIComponent(`Olá! Gostaria de encomendar uma commission do tipo: ${item}`);
-        
-        // Substitua 'SEUNUMERO' pelo seu número real com DDD (ex: 5511999999999)
-        window.open(`https://wa.me/5511999999999?text=${mensagem}`, '_blank');
-    };
-});
-
-function filterSelection(category) {
-    const cards = document.getElementsByClassName("art-card");
-    
-    // Se a categoria for 'all', mostra tudo. Caso contrário, filtra.
-    for (let i = 0; i < cards.length; i++) {
-        if (category === "all") {
-            cards[i].style.display = "block";
-        } else {
-            // Verifica se o card tem a classe da categoria (ex: 'canines')
-            if (cards[i].classList.contains(category)) {
-                cards[i].style.display = "block";
-            } else {
-                cards[i].style.display = "none";
-            }
-        }
-    }
-}
-
-document.querySelectorAll('.btn-order').forEach(button => {
-    button.onclick = function() {
-        // Pega o nome do plano (Sketch, Full Color, etc) que está no h3 acima do botão
+    button.addEventListener('click', function() {
         const tipoServico = this.parentElement.querySelector('h3').innerText;
-        const meuNumero = "5511999999999"; // COLOQUE SEU NÚMERO AQUI (com DDD)
+        const meuNumero = "5511999999999"; // <--- COLOQUE SEU NÚMERO AQUI (com DDD)
         
         const texto = `Olá! Vi seu portfólio e gostaria de fazer um pedido de: ${tipoServico}`;
         const url = `https://wa.me/${meuNumero}?text=${encodeURIComponent(texto)}`;
         
-        window.open(url, '_blank');
-    };
-});
-
-// Fecha o modal ao clicar fora da imagem ou no botão fechar
-window.onclick = function(event) {
-    const modal = document.getElementById("imageModal");
-    if (event.target == modal || event.target.classList.contains('close')) {
-        modal.style.display = "none";
-    }
-}
-
+        window.open(
