@@ -82,3 +82,13 @@ footer { background: var(--current-line); padding: 40px 20px; border-top: 2px so
 .footer-bottom { text-align: center; padding-top: 20px; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+}
+
+/* Força o alinhamento de tudo que estava quebrado */
+.grid-container, .price-container, .footer-content {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+}
