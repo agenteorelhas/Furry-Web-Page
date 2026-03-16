@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furry Art Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">MyFurryGallery</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h1>Bem-vindo ao meu Espaço Criativo</h1>
+            <p>Explorando designs de personagens e arte digital antropomórfica.</p>
+        </section>
+
+        <section id="gallery">
+            <h2>Minhas Obras</h2>
+            <div class="filter-buttons">
+                <button onclick="filterSelection('all')">Tudo</button>
+                <button onclick="filterSelection('canines')">Caninos</button>
+                <button onclick="filterSelection('felines')">Felinos</button>
+                <button onclick="filterSelection('rabbits')">Coelhos</button>
+            </div>
+            
+            <div class="grid-container" id="artGrid">
+                <div class="art-card canines">
+                    <img src="https://via.placeholder.com/300x400" alt="Arte de Lobo">
+                    <p>Lobo Guerreiro</p>
+                </div>
+                <div class="art-card rabbits">
+                    <img src="https://via.placeholder.com/300x400" alt="Arte de Coelho">
+                    <p>Coelho Branco (Olhos Vermelhos)</p>
+                </div>
+                </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
