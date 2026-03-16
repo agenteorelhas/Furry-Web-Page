@@ -7,11 +7,11 @@ if (typeof particlesJS !== 'undefined') {
     particlesJS('particles-js', {
         "particles": {
             "number": { 
-                "value": 100, // Quantidade de partículas
+                "value": 100,
                 "density": { "enable": true, "value_area": 800 } 
             },
             "color": { 
-                "value": ["#bd93f9", "#ff79c6"] // Alterna entre Roxo e Rosa Dracula
+                "value": ["#bd93f9", "#ff79c6"] 
             },
             "shape": { "type": "circle" },
             "opacity": { 
@@ -27,13 +27,13 @@ if (typeof particlesJS !== 'undefined') {
             "line_linked": { 
                 "enable": true, 
                 "distance": 150, 
-                "color": "#6272a4", // Cor dos traços (Comentário Dracula)
+                "color": "#6272a4", 
                 "opacity": 0.3, 
                 "width": 1 
             },
             "move": { 
                 "enable": true, 
-                "speed": 1.5, // Velocidade do movimento
+                "speed": 1.5,
                 "direction": "none", 
                 "random": false, 
                 "straight": false, 
@@ -44,8 +44,8 @@ if (typeof particlesJS !== 'undefined') {
         "interactivity": {
             "detect_on": "canvas",
             "events": { 
-                "onhover": { "enable": true, "mode": "grab" }, // Efeito ao passar o mouse
-                "onclick": { "enable": true, "mode": "push" }, // Adiciona partículas ao clicar
+                "onhover": { "enable": true, "mode": "grab" },
+                "onclick": { "enable": true, "mode": "push" }, 
                 "resize": true
             },
             "modes": {
@@ -59,13 +59,13 @@ if (typeof particlesJS !== 'undefined') {
 
 /**
  * ===================================================================
- * 2. LÓGICA DE FILTRAGEM DA GALERIA
+ * 2. LÓGICA DE FILTRAGEM DA GALERIA E BRILHO NEON
  * ===================================================================
  */
 function filterSelection(category) {
     const cards = document.getElementsByClassName("art-card");
     
-    // 1. Lógica de Filtragem
+    // 1. Lógica de Filtragem dos Cards
     for (let i = 0; i < cards.length; i++) {
         if (category === "all" || cards[i].classList.contains(category)) {
             cards[i].style.display = "block";
@@ -77,12 +77,11 @@ function filterSelection(category) {
     // 2. Lógica do Brilho Neon (Botão Ativo)
     const buttons = document.querySelectorAll('.filter-buttons button');
     buttons.forEach(btn => {
-        btn.classList.remove('active'); // Remove o brilho de todos
+        btn.classList.remove('active'); // Remove o brilho de todos primeiro
         
-        // Se o texto do botão ou o evento bater com a categoria, adiciona o brilho
-        // Nota: O 'this' ou o evento seriam ideais, mas como o onclick está no HTML,
-        // vamos comparar pelo argumento da função.
-        if(btn.getAttribute('onclick').includes(category)) {
+        // Verifica se o atributo onclick do botão contém a categoria selecionada
+        const clickAttr = btn.getAttribute('onclick');
+        if (clickAttr && clickAttr.includes(`'${category}'`)) {
             btn.classList.add('active');
         }
     });
@@ -94,67 +93,56 @@ function filterSelection(category) {
  * ===================================================================
  */
 function imageLoaded(img) {
-    // Encontra o skeleton que está logo antes da imagem
     const skeleton = img.previousElementSibling;
-    
-    // Esconde o skeleton
     if (skeleton && skeleton.classList.contains('skeleton')) {
         skeleton.style.display = 'none';
     }
-    
-    // Adiciona a classe que faz a imagem aparecer com Fade-in
     img.classList.add('img-loaded');
 }
 
 /**
  * ===================================================================
- * 4. LÓGICA DO MODAL DE IMAGEM (Zoom)
+ * 4. LÓGICA DO MODAL DE IMAGEM (Zoom e Fechamento)
  * ===================================================================
  */
 const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("imgFull");
 const captionText = document.getElementById("caption");
 
-// Função para abrir o modal ao clicar na imagem
+// Abre o modal
 document.querySelectorAll('.art-card img').forEach(img => {
     img.addEventListener('click', function() {
         if (modal && modalImg) {
             modal.style.display = "block";
-            modalImg.src = this.src; // Pega a fonte da imagem clicada
-            captionText.innerHTML = this.alt; // Pega o texto alt da imagem clicada
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
         }
     });
 });
 
-/**
- * ===================================================================
- * 5. LÓGICA DE FECHAMENTO DO MODAL (X e Fundo)
- * ===================================================================
- */
-// Unificado para ouvir cliques na janela inteira
+// Fecha o modal (clicando no 'X' ou fora da imagem)
 window.addEventListener('click', function(event) {
-    const modal = document.getElementById("imageModal");
-    // Verifica se clicou no fundo do modal OU no elemento com a classe 'close' (X)
-    if (event.target == modal || event.target.classList.contains('close')) {
+    if (modal && (event.target == modal || event.target.classList.contains('close'))) {
         modal.style.display = "none";
     }
 });
 
 /**
  * ===================================================================
- * 6. LÓGICA DOS BOTÕES DE COMMISSION (WhatsApp)
+ * 5. LÓGICA DOS BOTÕES DE COMMISSION (WhatsApp)
  * ===================================================================
  */
 document.querySelectorAll('.btn-order').forEach(button => {
     button.addEventListener('click', function() {
-        // Pega o nome do plano (Sketch, Full Color, etc) que está no h3 acima do botão
-        const tipoServico = this.parentElement.querySelector('h3').innerText;
-        const meuNumero = "5511999999999"; // <--- SUBSTITUA PELO SEU NÚMERO (com DDD)
-        
-        const texto = `Olá! Vi seu portfólio e gostaria de fazer um pedido de commission do tipo: ${tipoServico}`;
-        const url = `https://wa.me/${meuNumero}?text=${encodeURIComponent(texto)}`;
-        
-        // Abre o WhatsApp em uma nova aba
-        window.open(url, '_blank');
+        const h3 = this.parentElement.querySelector('h3');
+        if (h3) {
+            const tipoServico = h3.innerText;
+            const meuNumero = "5511999999999"; // <--- COLOQUE SEU NÚMERO AQUI
+            
+            const texto = `Olá! Vi seu portfólio e gostaria de fazer um pedido de commission do tipo: ${tipoServico}`;
+            const url = `https://wa.me/${meuNumero}?text=${encodeURIComponent(texto)}`;
+            
+            window.open(url, '_blank');
+        }
     });
 });
