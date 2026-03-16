@@ -265,3 +265,61 @@ nav a:hover {
     background: var(--pink);
     box-shadow: 0 0 15px var(--pink);
 }
+
+footer {
+    background-color: var(--current-line);
+    color: var(--foreground);
+    padding: 40px 20px 10px 20px;
+    border-top: 2px solid var(--purple);
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h3 {
+    color: var(--pink);
+    margin-bottom: 15px;
+}
+
+.footer-section p {
+    color: var(--comment);
+    line-height: 1.6;
+}
+
+.icons {
+    display: flex;
+    gap: 15px;
+    font-size: 1.8rem;
+}
+
+.icons a {
+    color: var(--purple);
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icons a:hover {
+    color: var(--pink);
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--comment);
+    color: var(--comment);
+    font-size: 0.9rem;
+}
