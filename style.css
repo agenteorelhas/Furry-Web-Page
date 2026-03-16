@@ -120,3 +120,34 @@ footer { background: var(--current-line); padding: 40px 20px; border-top: 2px so
     padding: 15px;              /* Espaçamento interno para o texto não encostar na borda */
     text-align: center;
 }
+
+/* 1. O card precisa esconder a imagem quando ela crescer */
+.art-card {
+    background: var(--current-line);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid transparent;
+    transition: 0.3s;
+    
+    /* ESSENCIAL: Impede que a imagem saia das bordas arredondadas ao dar zoom */
+    overflow: hidden; 
+}
+
+/* 2. Definimos como a imagem se comporta normalmente */
+.art-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: block;
+    
+    /* Transição suave para o zoom (0.5 segundos) */
+    transition: transform 0.5s ease; 
+}
+
+/* 3. O efeito de zoom quando o mouse passa por CIMA DO CARD */
+.art-card:hover img {
+    /* Aumenta a imagem em 10% (1.1). 
+       Use 1.2 para um zoom mais forte */
+    transform: scale(1.1); 
+}
