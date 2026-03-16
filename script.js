@@ -70,3 +70,21 @@ document.querySelectorAll('.btn-order').forEach(button => {
         window.open(`https://wa.me/5511999999999?text=${mensagem}`, '_blank');
     };
 });
+
+function filterSelection(category) {
+    const cards = document.getElementsByClassName("art-card");
+    
+    // Se a categoria for 'all', mostra tudo. Caso contrário, filtra.
+    for (let i = 0; i < cards.length; i++) {
+        if (category === "all") {
+            cards[i].style.display = "block";
+        } else {
+            // Verifica se o card tem a classe da categoria (ex: 'canines')
+            if (cards[i].classList.contains(category)) {
+                cards[i].style.display = "block";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+}
