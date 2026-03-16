@@ -74,3 +74,22 @@ nav a:hover {
     padding: 10px;
     text-align: center;
 }
+
+function filterSelection(category) {
+    const cards = document.getElementsByClassName("art-card");
+    
+    if (category === "all") {
+        for (let card of cards) {
+            card.style.display = "block";
+        }
+        return;
+    }
+
+    for (let card of cards) {
+        if (card.classList.contains(category)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    }
+}
