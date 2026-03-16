@@ -98,3 +98,25 @@ footer { background: var(--current-line); padding: 40px 20px; border-top: 2px so
 .icons { display: flex; gap: 20px; font-size: 1.5rem; margin-top: 10px; }
 .icons a { text-decoration: none; transition: 0.3s; }
 .footer-bottom { text-align: center; padding-top: 20px; margin-top: 20px; border-top: 1px solid var(--comment); color: var(--comment); }
+
+}
+
+.art-card {
+    width: 300px;               /* Largura fixa do card */
+    background: #44475a;        /* Cor de fundo (Dracula) */
+    border-radius: 12px;        /* Bordas arredondadas */
+    overflow: hidden;           /* Garante que a imagem não saia das bordas */
+    border: 1px solid #bd93f9;  /* Borda roxa fina */
+}
+
+.art-card img {
+    width: 100%;                /* Faz a imagem ocupar toda a largura do card */
+    height: 200px;              /* Define uma altura fixa para padronizar todos os cards */
+    object-fit: cover;          /* CRITICAL: Corta a imagem para preencher o espaço sem esticar */
+    display: block;             /* Remove espaços vazios estranhos abaixo da imagem */
+}
+
+.card-info {
+    padding: 15px;              /* Espaçamento interno para o texto não encostar na borda */
+    text-align: center;
+}
